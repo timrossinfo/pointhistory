@@ -1,7 +1,6 @@
 <%= render 'title' %>
 <%= render 'contents' %>
 <%= render 'foreword' %>
-<%= render 'ch_1' %>
-<%= render 'ch_2' %>
-<%= render 'ch_3' %>
-<%= render 'ch_4' %>
+<% @chapters.each_with_index do |chapter, index| %>
+  <%= render "ch_#{index + 1}" %>
+<% end %>
