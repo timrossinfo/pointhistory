@@ -2,24 +2,17 @@
   <h2>Contents</h2>
   <ul>
     <li><a href="#foreword">Foreword</a></li>
-    <li>
-      <a href="#chapter-one">Chapter One</a>
-      <ul>
-        <li><a href="#pre-european-days">Pre-European Days</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#chapter-two">Chapter Two</a>
-      <ul>
-        <li><a href="#nomenclature">Nomenclature</a></li>
-        <li><a href="#street-names">Street Names</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#chapter-three">Chapter Three</a>
-      <ul>
-        <li><a href="#the-early-days">The Early Days</a></li>
-      </ul>
-    </li>
+    <% @chapters.each do |chapter| %>
+      <li>
+        <a href="#<%= chapter.id %>"><%= chapter.name %></a>
+        <% if chapter.sections.any? %>
+          <ul>
+          <% chapter.sections.each do |section| %>
+            <li><a href="#<%= section.id %>"><%= section.name %></a></li>
+          <% end %>
+          </ul>
+        <% end %>
+      </li>
+    <% end %>
   </ul>
 </nav>
