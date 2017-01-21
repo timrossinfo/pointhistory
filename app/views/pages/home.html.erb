@@ -1,6 +1,22 @@
-<%= render 'title' %>
-<%= render 'contents' %>
-<%= render 'foreword' %>
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'title' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'contents' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'foreword' %>
+  </div>
+</div>
 <% @chapters.each_with_index do |chapter, index| %>
-  <%= render "ch_#{index + 1}" %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render "ch_#{index + 1}" %>
+    </div>
+  </div>
 <% end %>
