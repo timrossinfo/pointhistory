@@ -16,7 +16,7 @@
 <% @chapters.each_with_index do |chapter, index| %>
   <div class="row">
     <div class="col-md-12">
-      <%= render "ch_#{index + 1}" %>
+      <%= render "ch_#{'%02d' % (index + 1)}" %>
     </div>
   </div>
 <% end %>
