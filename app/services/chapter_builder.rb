@@ -1,7 +1,7 @@
 class ChapterBuilder
   def build_chapters
     chapters = []
-    chapter_files = Dir.glob('app/views/pages/_ch*')
+    chapter_files = Dir.glob('app/views/pages/_ch*').sort
     chapter_files.each do |path|
       doc = File.open(path) { |f| Nokogiri::HTML(f) }
       chapter = find_chapter doc
