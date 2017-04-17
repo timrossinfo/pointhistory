@@ -3,7 +3,6 @@
     <h1>Contents</h1>
   </div>
   <ul>
-    <li><a href="#foreword">Foreword</a></li>
     <% @chapters.each do |chapter| %>
       <li>
         <%= link_to chapter.name, chapter.path %>

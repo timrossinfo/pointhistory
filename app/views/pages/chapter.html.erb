@@ -2,20 +2,9 @@
 <div class="container chapter">
   <div class="row">
     <div class="col-md-12">
-      <%= render "ch_#{'%02d' % (@index + 1)}" %>
+      <%= render "ch_#{'%02d' % @index}" %>
     </div>
   </div>
   <hr />
-  <div class="row paging">
-    <div class="col-xs-6">
-      <% if @prev %>
-        <%= link_to "< #{@prev.name}", @prev.path %>
-      <% end %>
-    </div>
-    <div class="col-xs-6 text-right">
-      <% if @next %>
-        <%= link_to "#{@next.name} >", @next.path %>
-      <% end %>
-    </div>
-  </div>
+  <%= render 'paging' %>
 </div>

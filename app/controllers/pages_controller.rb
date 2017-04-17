@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
   before_action :load_chapters
 
-  def home
-  end
+  def home; end
 
   def chapter
     @index = @chapters.find_index { |c| c.id == params[:id] }

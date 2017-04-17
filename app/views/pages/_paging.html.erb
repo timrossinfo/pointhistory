@@ -1,0 +1,16 @@
+<div class="row paging">
+  <div class="col-xs-6">
+    <% if @prev %>
+      <%= link_to "< #{@prev.name}", @prev.path %>
+    <% else %>
+      <%= link_to '< Home', root_path %>
+    <% end %>
+  </div>
+  <div class="col-xs-6 text-right">
+    <% if @next %>
+      <%= link_to "#{@next.name} >", @next.path %>
+    <% else %>
+      <%= link_to 'Home >', root_path %>
+    <% end %>
+  </div>
+</div>
