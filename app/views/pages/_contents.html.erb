@@ -2,7 +2,7 @@
   <div class="page-header">
     <h1>Contents</h1>
   </div>
-  <ul>
+  <ul class="list-unstyled">
     <% @chapters.each do |chapter| %>
       <li>
         <%= link_to chapter.name, chapter.path %>

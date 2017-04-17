@@ -1,16 +1,30 @@
-<div class="row paging">
-  <div class="col-xs-6">
-    <% if @prev %>
-      <%= link_to "< #{@prev.name}", @prev.path %>
-    <% else %>
-      <%= link_to '< Home', root_path %>
-    <% end %>
-  </div>
-  <div class="col-xs-6 text-right">
-    <% if @next %>
-      <%= link_to "#{@next.name} >", @next.path %>
-    <% else %>
-      <%= link_to 'Home >', root_path %>
-    <% end %>
-  </div>
-</div>
+<nav aria-label="...">
+  <ul class="pager">
+    <li class="previous">
+      <% if @prev %>
+        <%= link_to @prev.path do %>
+          <span aria-hidden="true">&lt;</span>
+          <%= @prev.name %>
+        <% end %>
+      <% else %>
+        <%= link_to root_path do %>
+          <span aria-hidden="true">&lt;</span>
+          Home
+        <% end %>
+      <% end %>
+    </li>
+    <li class="next">
+      <% if @next %>
+        <%= link_to @next.path do %>
+          <%= @next.name %>
+          <span aria-hidden="true">&gt;</span>
+        <% end %>
+      <% else %>
+        <%= link_to root_path do %>
+          Home
+          <span aria-hidden="true">&gt;</span>
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
+</nav>
