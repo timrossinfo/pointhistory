@@ -9,3 +9,24 @@
     font-style: italic;
   }
 }
+
+.page-heading {
+  background-image: image-url('title-background.jpg');
+
+  .page-header {
+    border-bottom: 0;
+  }
+
+  blockquote {
+    border-left: 0;
+    color: $title-quote-shadow-color;
+    font-family: $headings-font-family;
+    font-size: 17px;
+    padding-left: 0;
+    text-shadow: 2px 2px 4px $title-quote-color;
+
+    footer {
+      color: inherit;
+    }
+  }
+}
