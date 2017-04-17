@@ -6,11 +6,13 @@
     <li><a href="#foreword">Foreword</a></li>
     <% @chapters.each do |chapter| %>
       <li>
-        <a href="#<%= chapter.id %>"><%= chapter.name %></a>
+        <%= link_to chapter.name, chapter.path %>
         <% if chapter.sections.any? %>
           <ul>
           <% chapter.sections.each do |section| %>
-            <li><a href="#<%= section.id %>"><%= section.name %></a></li>
+            <li>
+              <%= link_to section.name, "#{chapter.path}##{section.id}" %>
+            </li>
           <% end %>
           </ul>
         <% end %>

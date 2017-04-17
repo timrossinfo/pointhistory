@@ -1,3 +1,7 @@
+body {
+  padding-bottom: 2em;
+}
+
 .thumbnail {
   max-width: $screen-xs-min;
 
@@ -27,6 +31,16 @@
 
     footer {
       color: inherit;
+    }
+  }
+}
+
+.chapter {
+  .page-header {
+    margin-top: 0;
+
+    h1 {
+      margin-top: 0;
     }
   }
 }

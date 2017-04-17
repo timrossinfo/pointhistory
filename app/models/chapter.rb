@@ -6,4 +6,8 @@ class Chapter
     @name = name
     @sections = []
   end
+
+  def path
+    "/chapters/#{id}"
+  end
 end
