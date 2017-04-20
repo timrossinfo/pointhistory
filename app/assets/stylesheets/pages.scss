@@ -15,7 +15,7 @@ body {
 }
 
 .page-heading {
-  background-image: image-url('title-background.jpg');
+  background: image-url('title-background.jpg') no-repeat scroll 0 0 / cover transparent;
   margin-bottom: 1em;
 
   .page-header {
