@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   def chapter
     @index = @chapters.find_index { |c| c.id == params[:id] }
+    @chapter = @chapters[@index]
     @prev = @chapters[@index - 1] if @index > 0
     @next = @chapters[@index + 1] if @index < @chapters.length
   end
