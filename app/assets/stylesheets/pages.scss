@@ -36,16 +36,21 @@ body {
   }
 }
 
-.chapter {
+.chapter,
+.table-of-contents {
   .page-header {
     margin-top: 0;
+  }
+}
 
+.chapter {
+  .page-header {
     h1 {
       margin-top: 0;
     }
   }
+}
 
-  .pager {
-    font-size: $font-size-small;
-  }
+.pager {
+  font-size: $font-size-small;
 }
