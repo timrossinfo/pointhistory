@@ -5,10 +5,6 @@ body {
 .thumbnail {
   max-width: $screen-xs-min;
 
-  img {
-    cursor: pointer;
-  }
-
   .caption {
     font-style: italic;
   }
