@@ -37,6 +37,7 @@ gem 'nokogiri', '~> 1.6'
 gem 'bootswatch-rails'
 gem 'lightbox2-rails'
 gem 'gepub', git: 'https://github.com/skoji/gepub.git'
+gem 'font_assets'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
