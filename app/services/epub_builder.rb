@@ -53,7 +53,7 @@ class EpubBuilder
   end
 
   def generate_epub
-    epubname = Rails.root.join('public', 'pointhistory.epub')
+    epubname = Rails.root.join('tmp', 'pointhistory.epub')
     book.generate_epub(epubname)
   end
 
