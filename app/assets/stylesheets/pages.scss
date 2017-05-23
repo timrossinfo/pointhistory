@@ -51,10 +51,21 @@ body {
 
 .table-of-contents {
   li {
-    padding-bottom: 0.1em;
+    padding-bottom: .1em;
   }
+  margin-bottom: 1.5em;
 }
 
 .pager {
   font-size: $font-size-small;
+}
+
+.download {
+  a {
+    margin-bottom: .5em;
+  }
+
+  small {
+    display: block;
+  }
 }
