@@ -72,7 +72,7 @@ class EpubBuilder
   end
 
   def build_document(title, content)
-    <<~EOF
+    <<-HTML
     <html xmlns="http://www.w3.org/1999/xhtml">
       <head>
         <title>#{title}</title>
@@ -82,6 +82,6 @@ class EpubBuilder
         <p>#{content}</p>
       </body>
     </html>
-    EOF
+    HTML
   end
 end
