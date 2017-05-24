@@ -7,7 +7,7 @@ class EpubBuilder
     create_book
     add_images
     add_css
-    add_chapters
+    add_content
     generate_epub
   end
 
@@ -20,14 +20,28 @@ class EpubBuilder
     book.add_creator 'O.P. Oliver'
   end
 
+  def add_cover_image
+    File.open(images_path.join('book-cover.jpg')) do |file|
+      book.add_item("images/cover.jpg", file).cover_image
+    end
+  end
+
   def add_images
-    images_path = Rails.root.join('app', 'assets', 'images')
+    add_cover_image
     Dir.glob([images_path.join('ch*.jpg'), images_path.join('1990-logo.jpg')]) do |path|
       file_name = File.basename(path)
       File.open(path) do |file|
         book.add_item("images/#{file_name}", file)
       end
     end
+  end
+
+  def images_path
+    Rails.root.join('app', 'assets', 'images')
+  end
+
+  def pages_path
+    Rails.root.join('app', 'views', 'pages')
   end
 
   def add_css
@@ -37,19 +51,31 @@ class EpubBuilder
     end
   end
 
-  def add_chapters
-    # Add chapters
-    chapters = ChapterBuilder.new.build_chapters
+  def add_content
     book.ordered do
+      add_intro
+      chapters = ChapterBuilder.new.build_chapters
       chapters.each_with_index do |chapter, index|
-        content = content_for_chapter_at_index(index)
-        replace_html!(content)
-        doc = build_document(chapter.name, content)
-        item = book.add_item("text/chap#{index}.xhtml")
-        item.add_raw_content(doc)
-        item.toc_text(chapter.name)
+        add_chapter(chapter, index)
       end
     end
+  end
+
+  def add_intro
+    filename = '_quote.html.erb'
+    content = content_for_erb(pages_path.join(filename))
+    doc = build_document(nil, content)
+    item = book.add_item("text/intro.xhtml")
+    item.add_raw_content(doc)
+  end
+
+  def add_chapter(chapter, index)
+    content = content_for_chapter_at_index(index)
+    replace_html!(content)
+    doc = build_document(chapter.name, content)
+    item = book.add_item("text/chap#{index}.xhtml")
+    item.add_raw_content(doc)
+    item.toc_text(chapter.name)
   end
 
   def generate_epub
@@ -59,7 +85,10 @@ class EpubBuilder
 
   def content_for_chapter_at_index(index)
     filename = "_ch_#{format('%02d', index)}.html.erb"
-    path = Rails.root.join('app', 'views', 'pages', filename)
+    content_for_erb(pages_path.join(filename))
+  end
+
+  def content_for_erb(path)
     html = File.open(path).read
     template = ERB.new(html)
     template.result(binding)

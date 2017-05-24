@@ -1,3 +1,15 @@
+.title-quote {
+  margin-top: 25%;
+}
+
+.title-quote footer {
+  font-style: italic;
+}
+
+.title-quote footer:before {
+  content:'\2014 \00A0';
+}
+
 .thumbnail .caption {
   font-style: italic;
 }
