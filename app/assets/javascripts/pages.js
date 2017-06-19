@@ -8,4 +8,14 @@ document.addEventListener('turbolinks:load', function() {
     });
   });
   lightbox.init();
+
+  $('a.download-book').click(function(e) {
+    var url = $(this).attr('href');
+    ga('send', 'event', 'Book', 'download', url, {
+      'hitCallback': function() {
+        document.location = url;
+      }
+    });
+    e.preventDefault();
+  });
 });
