@@ -119,7 +119,7 @@ GEM
       pry (>= 0.10.4)
     puma (3.12.1)
     puma (3.12.1-java)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.7.2)
