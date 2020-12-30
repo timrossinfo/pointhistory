@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'nokogiri', '~> 1.6'
+gem 'nokogiri', '~> 1.10'
 gem 'bootswatch-rails'
 gem 'lightbox2-rails'
 gem 'gepub', git: 'https://github.com/skoji/gepub.git'
