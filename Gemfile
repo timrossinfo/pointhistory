@@ -1,4 +1,4 @@
-ruby '2.6.3'
+ruby '2.7.3'
 
 source 'https://rubygems.org'
 
@@ -38,7 +38,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'nokogiri', '~> 1.6'
 gem 'bootswatch-rails'
 gem 'lightbox2-rails'
-gem 'gepub', git: 'https://github.com/skoji/gepub.git'
+gem 'gepub'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
