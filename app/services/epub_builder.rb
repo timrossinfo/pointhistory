@@ -16,13 +16,13 @@ class EpubBuilder
   def create_book
     @book = GEPUB::Book.new
     book.primary_identifier 'pointhistory.org', 'BookID', 'URL'
-    book.add_title 'Pleasant Point: A History', nil, GEPUB::TITLE_TYPE::MAIN
+    book.add_title 'Pleasant Point: A History', title_type: GEPUB::TITLE_TYPE::MAIN
     book.add_creator 'O.P. Oliver'
   end
 
   def add_cover_image
     File.open(images_path.join('book-cover.jpg')) do |file|
-      book.add_item("images/cover.jpg", file).cover_image
+      book.add_item('images/cover.jpg', content: file).cover_image
     end
   end
 
@@ -31,7 +31,7 @@ class EpubBuilder
     Dir.glob([images_path.join('ch*.jpg'), images_path.join('1990-logo.jpg')]) do |path|
       file_name = File.basename(path)
       File.open(path) do |file|
-        book.add_item("images/#{file_name}", file)
+        book.add_item("images/#{file_name}", content: file)
       end
     end
   end
@@ -47,7 +47,7 @@ class EpubBuilder
   def add_css
     css_path = Rails.root.join('app', 'assets', 'stylesheets', 'epub.css')
     File.open(css_path) do |file|
-      book.add_item("style/default.css", file)
+      book.add_item('style/default.css', content: file)
     end
   end
 
@@ -65,7 +65,7 @@ class EpubBuilder
     filename = '_quote.html.erb'
     content = content_for_erb(pages_path.join(filename))
     doc = build_document(nil, content)
-    item = book.add_item("text/intro.xhtml")
+    item = book.add_item('text/intro.xhtml')
     item.add_raw_content(doc)
   end
 
